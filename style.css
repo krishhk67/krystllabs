@@ -1,0 +1,534 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#050507;
+--card:rgba(255,255,255,.04);
+--border:rgba(255,255,255,.08);
+
+--purple:#a855f7;
+--purple2:#c084fc;
+
+--text:#ffffff;
+--muted:#b7b7c8;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+position:relative;
+}
+
+/* =========================
+BACKGROUND
+========================= */
+
+.bg-gradient{
+position:fixed;
+inset:0;
+z-index:-3;
+
+background:
+radial-gradient(circle at 50% 20%,
+rgba(168,85,247,.18),
+transparent 40%),
+radial-gradient(circle at 80% 70%,
+rgba(168,85,247,.08),
+transparent 35%),
+#050507;
+
+animation:aurora 18s ease infinite;
+}
+
+@keyframes aurora{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* =========================
+CURSOR GLOW
+========================= */
+
+.cursor-glow{
+position:fixed;
+width:500px;
+height:500px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(168,85,247,.18),
+transparent 70%
+);
+
+pointer-events:none;
+
+transform:
+translate(-50%,-50%);
+
+z-index:-2;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:22px 8%;
+
+background:rgba(5,5,7,.65);
+
+backdrop-filter:blur(18px);
+
+border-bottom:
+1px solid rgba(255,255,255,.05);
+
+z-index:1000;
+}
+
+.logo{
+font-size:1.3rem;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+color:#d7d7e7;
+text-decoration:none;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:white;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:120px 20px 80px;
+
+text-align:center;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.profile-ring{
+
+width:180px;
+height:180px;
+
+margin:auto;
+
+padding:4px;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+135deg,
+var(--purple),
+var(--purple2)
+);
+
+box-shadow:
+0 0 60px rgba(168,85,247,.35);
+
+animation:
+float 5s ease-in-out infinite;
+}
+
+.profile-ring img{
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+border-radius:50%;
+display:block;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+.hero-title{
+
+font-size:clamp(4rem,9vw,7rem);
+
+font-weight:900;
+
+letter-spacing:3px;
+
+margin-top:30px;
+
+background:
+linear-gradient(
+90deg,
+white,
+#d8b4fe,
+white
+);
+
+background-size:300%;
+
+background-clip:text;
+-webkit-background-clip:text;
+
+color:transparent;
+-webkit-text-fill-color:transparent;
+
+animation:shine 8s linear infinite;
+}
+@keyframes shine{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
+}
+
+.typing-text{
+
+margin-top:24px;
+
+font-size:1.15rem;
+
+line-height:1.9;
+
+color:var(--muted);
+}
+
+.hero-buttons{
+
+display:flex;
+justify-content:center;
+gap:15px;
+
+flex-wrap:wrap;
+
+margin-top:35px;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.btn{
+padding:14px 28px;
+
+border-radius:16px;
+
+font-weight:700;
+
+text-decoration:none;
+
+transition:.3s;
+}
+
+.btn-primary{
+
+background:
+linear-gradient(
+135deg,
+var(--purple),
+var(--purple2)
+);
+
+color:white;
+
+box-shadow:
+0 10px 40px rgba(168,85,247,.3);
+}
+
+.btn-primary:hover{
+transform:translateY(-4px);
+}
+
+.btn-secondary{
+
+color:white;
+
+border:
+1px solid rgba(255,255,255,.15);
+}
+
+.btn-secondary:hover{
+background:
+rgba(255,255,255,.05);
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+.section{
+width:min(1200px,90%);
+margin:auto;
+padding:120px 0;
+}
+
+.section-title{
+font-size:3rem;
+margin-bottom:50px;
+}
+
+/* =========================
+PROJECTS
+========================= */
+
+.projects-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:28px;
+}
+
+.project-card{
+
+background:var(--card);
+
+border:
+1px solid var(--border);
+
+border-radius:28px;
+
+overflow:hidden;
+
+padding:22px;
+
+transition:.4s;
+
+backdrop-filter:blur(18px);
+}
+
+.project-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+0 25px 60px rgba(168,85,247,.18);
+}
+
+.project-image{
+
+width:100%;
+height:220px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+margin-bottom:20px;
+
+transition:.4s;
+}
+
+.project-card:hover .project-image{
+transform:scale(1.04);
+}
+
+.project-card h3{
+font-size:1.8rem;
+margin-bottom:14px;
+}
+
+.project-card p{
+
+color:var(--muted);
+
+line-height:1.8;
+
+margin-bottom:22px;
+}
+
+.card-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.about-card{
+
+background:var(--card);
+
+border:
+1px solid var(--border);
+
+padding:35px;
+
+border-radius:28px;
+
+backdrop-filter:blur(20px);
+}
+
+.about-card p{
+
+line-height:2;
+
+color:var(--muted);
+
+margin-bottom:18px;
+}
+
+/* =========================
+STACK
+========================= */
+
+.stack-grid{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+}
+
+.stack-item{
+
+padding:14px 22px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+}
+
+.stack-item:hover{
+
+transform:
+translateY(-4px);
+
+border-color:
+rgba(168,85,247,.4);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+
+padding:90px 20px;
+
+text-align:center;
+
+color:#9f9fb2;
+}
+
+.footer p{
+margin-bottom:10px;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.navbar{
+padding:18px 5%;
+}
+
+.nav-links{
+display:none;
+}
+
+.profile-ring{
+width:130px;
+height:130px;
+}
+
+.hero-title{
+font-size:3rem;
+}
+
+.typing-text{
+font-size:1rem;
+}
+
+.section-title{
+font-size:2.2rem;
+}
+
+.project-image{
+height:180px;
+}
+
+.section{
+padding:80px 0;
+}
+
+}
